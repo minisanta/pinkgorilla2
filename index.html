@@ -1,127 +1,771 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PINK GORILLA | Data-Driven Video Content</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      color: #1a1a1a;
-      background-color: #fff;
-      line-height: 1.6;
-    }
-    header {
-      padding: 60px 20px;
-      text-align: center;
-      background: #f72785;
-      color: #fff;
-    }
-    header h1 {
-      margin: 0 0 10px;
-      font-size: 2.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .cta-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 30px;
-      background: #000;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 960px;
-      margin: auto;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-      margin: 40px 0;
-    }
-    .stat {
-      background: #f2f2f2;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-    }
-    .highlight {
-      color: #f72785;
-      font-weight: bold;
-    }
-    .footer {
-      background: #111;
-      color: #fff;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .footer a {
-      color: #f72785;
-      text-decoration: none;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Content Crisis - Pink Gorilla</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section.orange-bg {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .section.white-bg {
+            background: white;
+            color: #333;
+        }
+
+        .section.light-bg {
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 120px 0;
+            background: white;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 60px;
+            font-weight: 400;
+        }
+
+        .stats-hero {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ff6b35;
+            margin-bottom: 15px;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Orange Section Styling */
+        .orange-section-header {
+            text-align: left;
+            margin-bottom: 60px;
+        }
+
+        .orange-section-header h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .orange-section-header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        /* Content Cards */
+        .content-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .content-card {
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .content-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .content-card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* Numbered List */
+        .numbered-list {
+            list-style: none;
+            margin-top: 40px;
+        }
+
+        .numbered-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+        }
+
+        .number-circle {
+            background: white;
+            color: #ff6b35;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.3rem;
+            margin-right: 25px;
+            flex-shrink: 0;
+        }
+
+        .list-content h4 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .list-content p {
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        /* White Section Headers */
+        .white-section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .white-section-header h2 {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .white-section-header .highlight {
+            color: #ff6b35;
+        }
+
+        .white-section-header p {
+            font-size: 1.3rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            border-left: 5px solid #ff6b35;
+        }
+
+        .feature-item h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .feature-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Case Study */
+        .case-study {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            border-radius: 25px;
+            padding: 60px;
+            margin: 60px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .case-study::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            transform: rotate(45deg);
+        }
+
+        .case-study-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .case-study h3 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .challenge-box {
+            background: rgba(255,255,255,0.15);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .challenge-box h4 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .result-box {
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .result-label {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Performance Table */
+        .performance-table {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 60px 0;
+        }
+
+        .table-header {
+            background: #ff6b35;
+            color: white;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .table-row {
+            padding: 25px 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+
+        .table-row:last-child {
+            border-bottom: none;
+        }
+
+        .performance-value {
+            font-weight: 700;
+            color: #ff6b35;
+            font-size: 1.1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 15px 35px rgba(255,107,53,0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(255,107,53,0.4);
+        }
+
+        /* Method Steps */
+        .method-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .method-step {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+            border-top: 5px solid #ff6b35;
+        }
+
+        .step-number {
+            background: #ff6b35;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.5rem;
+            margin: 0 auto 25px auto;
+        }
+
+        .method-step h4 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .method-step p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Brand Section */
+        .brand-intro {
+            text-align: center;
+            background: linear-gradient(135deg, #333 0%, #555 100%);
+            color: white;
+            padding: 100px 0;
+        }
+
+        .brand-logo {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ff6b35;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .brand-tagline {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .brand-description {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .orange-section-header h2,
+            .white-section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .stats-hero,
+            .content-cards,
+            .feature-grid,
+            .results-grid,
+            .method-steps {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .case-study,
+            .section {
+                padding: 40px 20px;
+            }
+            
+            .table-header,
+            .table-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="fade-in">Creating content that<br><span style="color: #ff6b35;">actually performs</span></h1>
+            <p class="subtitle fade-in">Your video content is being ignored and fails to engage.<br>We create presentations that win hearts, minds, and important business deals.</p>
+            
+            <div class="stats-hero">
+                <div class="stat-item fade-in">
+                    <div class="stat-number">8s</div>
+                    <div class="stat-label">Attention Span</div>
+                    <p class="stat-desc">Average human attention span - less than a goldfish</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">0.7%</div>
+                    <div class="stat-label">Engagement Rate</div>
+                    <p class="stat-desc">Most branded content fails to engage audiences</p>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">68%</div>
+                    <div class="stat-label">Wasted Spend</div>
+                    <p class="stat-desc">Marketing budgets fail to deliver measurable ROI</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <header>
-    <h1>Your Video Content Is Being Ignored</h1>
-    <p>We use behavioral psychology + data to create videos that stop the scroll and double your engagement.</p>
-    <a href="#cta" class="cta-button">Book Free Content Audit</a>
-  </header>
+    <!-- The Reality Section -->
+    <section class="section orange-bg">
+        <div class="container">
+            <div class="orange-section-header fade-in">
+                <h2>We love making<br>good first<br>impressions.</h2>
+                <p>When it comes to presentations, we do it all, but this is where our core strengths lie.</p>
+            </div>
 
-  <section>
-    <h2>The Content Crisis</h2>
-    <div class="stats">
-      <div class="stat"><span class="highlight">8s</span><br />Attention Span</div>
-      <div class="stat"><span class="highlight">0.7%</span><br />Average Engagement</div>
-      <div class="stat"><span class="highlight">68%</span><br />Wasted Budget</div>
-      <div class="stat"><span class="highlight">4000+</span><br />Ads Seen Daily</div>
-    </div>
-  </section>
+            <ul class="numbered-list">
+                <li class="fade-in">
+                    <div class="number-circle">01</div>
+                    <div class="list-content">
+                        <h4>Algorithm Invisibility</h4>
+                        <p>Social platforms prioritize engaging content. Users see 4,000-10,000 ads daily, burying brand posts that don't immediately capture interest.</p>
+                    </div>
+                </li>
+                <li class="fade-in">
+                    <div class="number-circle">02</div>
+                    <div class="list-content">
+                        <h4>The Content Paradox</h4>
+                        <p>More content doesn't equal more engagement. Brands see declining organic reach, decreasing engagement rates, and shorter view durations.</p>
+                    </div>
+                </li>
+                <li class="fade-in">
+                    <div class="number-circle">03</div>
+                    <div class="list-content">
+                        <h4>Escalating Costs</h4>
+                        <p>Customer Acquisition Cost has increased by 60% in five years, while 86% of consumers report "banner blindness" toward branded content.</p>
+                    </div>
+                </li>
+                <li class="fade-in">
+                    <div class="number-circle">04</div>
+                    <div class="list-content">
+                        <h4>Brand Forgettability</h4>
+                        <p>Content that fails to engage is quickly forgotten, creating negative ROI spirals and wasting brand-building opportunities.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-  <section>
-    <h2>Our Science-Backed Method</h2>
-    <ul>
-      <li>🎯 Psychographic Audience Targeting</li>
-      <li>🧪 A/B Testing + Optimization</li>
-      <li>🎞️ Psychological Triggers in Editing</li>
-      <li>📊 Performance Analytics + Reporting</li>
-    </ul>
-  </section>
+    <!-- What If Section -->
+    <section class="section white-bg">
+        <div class="container">
+            <div class="white-section-header fade-in">
+                <h2>The winning <span class="highlight">formula</span></h2>
+                <p><strong>Research-Driven Content Science:</strong> Our methodology combines behavioral psychology, data analytics and creative execution.</p>
+            </div>
 
-  <section>
-    <h2>Case Study: Dutch Lady</h2>
-    <div class="stats">
-      <div class="stat"><span class="highlight">63,000+</span><br />Interactions</div>
-      <div class="stat"><span class="highlight">2.3x</span><br />More Views</div>
-      <div class="stat"><span class="highlight">>50%</span><br />Organic Engagement</div>
-      <div class="stat"><span class="highlight">$0</span><br />Ad Spend</div>
-    </div>
-  </section>
+            <div class="feature-grid">
+                <div class="feature-item fade-in">
+                    <h3>🎯 STOPS THE SCROLL</h3>
+                    <p>Psychological triggers that capture attention in under 3 seconds using pattern interruption and emotional contrast.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <h3>📈 DOUBLES ENGAGEMENT</h3>
+                    <p>Consistently outperform industry benchmarks through strategic application of proven psychological triggers.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <h3>🚀 DRIVES ORGANIC GROWTH</h3>
+                    <p>Reduce dependency on paid promotion through content that audiences actually want to share and engage with.</p>
+                </div>
+                <div class="feature-item fade-in">
+                    <h3>💰 DELIVERS MEASURABLE RESULTS</h3>
+                    <p>Direct impact on bottom line through content performance that connects to business outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="cta">
-    <h2>Ready to Transform Your Content?</h2>
-    <p>Book a free content performance audit and discover how to double your engagement using our approach.</p>
-    <a href="mailto:hello@pinkgorilla.video" class="cta-button">Schedule Free Audit</a>
-  </section>
+    <!-- Brand Introduction -->
+    <section class="brand-intro">
+        <div class="container">
+            <div class="brand-logo fade-in">PINK GORILLA</div>
+            <p class="brand-tagline fade-in">Where Science Meets Creativity</p>
+            <p class="brand-description fade-in">We don't just make videos. We engineer engagement through a proven system that transforms how audiences interact with your brand. Our team of content scientists, creative strategists and performance analysts work together to create video content that doesn't just look good – it actually performs.</p>
+        </div>
+    </section>
 
-  <div class="footer">
-    <p>&copy; 2025 Pink Gorilla. All rights reserved. | <a href="mailto:hello@pinkgorilla.video">hello@pinkgorilla.video</a></p>
-  </div>
+    <!-- Case Study -->
+    <section class="section light-bg">
+        <div class="container">
+            <div class="case-study fade-in">
+                <div class="case-study-content">
+                    <h3>DUTCH LADY TRANSFORMATION</h3>
+                    
+                    <div class="challenge-box">
+                        <h4>CHALLENGE:</h4>
+                        <p>Increase Dutch Lady's organic engagement and brand connection without increasing ad spend.</p>
+                    </div>
+                    
+                    <div class="challenge-box">
+                        <h4>APPROACH:</h4>
+                        <p>We implemented our research-driven content methodology, testing and optimizing various content formats over a 3-month period.</p>
+                    </div>
 
+                    <h4 style="text-align: center; font-size: 2rem; margin: 40px 0 30px 0;">RESULTS:</h4>
+                    
+                    <div class="results-grid">
+                        <div class="result-box">
+                            <div class="result-number">63K+</div>
+                            <div class="result-label">Interactions</div>
+                            <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">36 videos, $0 media spend</p>
+                        </div>
+                        <div class="result-box">
+                            <div class="result-number">86%</div>
+                            <div class="result-label">Growth</div>
+                            <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">Monthly views: 1,665 → 3,093</p>
+                        </div>
+                        <div class="result-box">
+                            <div class="result-number">50%+</div>
+                            <div class="result-label">Organic Rate</div>
+                            <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">vs. <1% industry average</p>
+                        </div>
+                        <div class="result-box">
+                            <div class="result-number">2.3X</div>
+                            <div class="result-label">More Views</div>
+                            <p style="font-size: 0.9rem; margin-top: 10px; opacity: 0.8;">vs. their other content</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Table -->
+            <div class="performance-table fade-in">
+                <div class="table-header">
+                    <div>METRICS</div>
+                    <div>INDUSTRY STANDARD</div>
+                    <div>PINK GORILLA</div>
+                </div>
+                <div class="table-row">
+                    <div><strong>Play Rate</strong></div>
+                    <div>3%</div>
+                    <div class="performance-value">5.62% (+87%)</div>
+                </div>
+                <div class="table-row">
+                    <div><strong>Engagement Rate</strong></div>
+                    <div><1%</div>
+                    <div class="performance-value">2% (1.86x)</div>
+                </div>
+                <div class="table-row">
+                    <div><strong>Average Views</strong></div>
+                    <div>1,042</div>
+                    <div class="performance-value">2,338 (2.34x)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section class="section white-bg">
+        <div class="container">
+            <div class="white-section-header fade-in">
+                <h2>We do it all with <span class="highlight">EASE!</span></h2>
+                <p>Our proprietary methodology eliminates guesswork and delivers predictable results through systematic approach.</p>
+            </div>
+
+            <div class="method-steps">
+                <div class="method-step fade-in">
+                    <div class="step-number">E</div>
+                    <h4>Explore</h4>
+                    <p>In-depth psychographic analysis beyond basic demographics. We get to know your audience's psychological triggers and behavioral patterns.</p>
+                </div>
+                <div class="method-step fade-in">
+                    <div class="step-number">A</div>
+                    <h4>Analyze</h4>
+                    <p>Convert findings into actionable insights. Understanding business goals, audience psychology, and key messaging that resonates.</p>
+                </div>
+                <div class="method-step fade-in">
+                    <div class="step-number">S</div>
+                    <h4>Strategies</h4>
+                    <p>Armed with knowledge, we build the strategy. Identify core themes, psychological triggers, and optimal content frameworks.</p>
+                </div>
+                <div class="method-step fade-in">
+                    <div class="step-number">E</div>
+                    <h4>Execute</h4>
+                    <p>Bring ideas to life through strategic creative execution. Designing content that reflects brand identity and drives engagement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section orange-bg">
+        <div class="container">
+            <div class="cta-section">
+                <div class="white-section-header" style="color: white; margin-bottom: 60px;">
+                    <h2 style="color: white;">Not sure where to start?</h2>
+                    <h2 style="color: white; margin-top: 20px;">We've got<br>ideas waiting<br>for you.</h2>
+                    <p style="color: white; opacity: 0.9; margin-top: 40px;">Get a Content Performance Audit to discover how your current content performs against industry benchmarks and identify specific opportunities for improvement.</p>
+                </div>
+                <button class="cta-button fade-in">Let's Talk</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+            
+            // Add click effects to CTA button
+            const ctaButton = document.querySelector('.cta-button');
+            if (ctaButton) {
+                ctaButton.addEventListener('click', function() {
+                    this.style.transform = 'translateY(-3px) scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-3px) scale(1)';
+                    }, 150);
+                });
+            }
+        });
+    </script>
 </body>
 </html>
